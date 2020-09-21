@@ -7,6 +7,9 @@ window.addEventListener('DOMContentLoaded', function () {
     let squareId = 1;
     document.body.style.backgroundColor = "#6d6875";
 
+
+
+    //Creates new divs when button is clicked, also gives styling to each div(block)
     btn.addEventListener('click', function () {
         let square = document.createElement('div');
         let text = document.createTextNode(squareId);
@@ -27,16 +30,20 @@ window.addEventListener('DOMContentLoaded', function () {
         square.style.flexWrap = "wrap";
         allDiv.appendChild(square);
         squareId++;
-
+        
+        //Displaying squareId when mouse hovered over block
         square.addEventListener("mouseover", function () {
             squareText.style.display = "block";
 
         })
+
+        //Hides squareId when mose off of block
         square.addEventListener("mouseout", function () {
             squareText.style.display = "none"
 
         })
-
+        
+        //Changes color of block randomly on a single click
         square.addEventListener("click", function () {
             let colors = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"]
             let randomNum = Math.floor(Math.random() * colors.length)
@@ -45,6 +52,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         })
 
+        //Checks value of square id to determine removal of another square
         square.addEventListener("dblclick", function () {
             if (square.id % 2 == 0) {
                 if (square.nextElementSibling) {
@@ -60,7 +68,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     alert("No square to the left!")
                 }
             }
-
         })
 
 
